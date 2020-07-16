@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/donde-coffee-react/static/css/main.5f361e03.chunk.css",
+    "main.js": "/donde-coffee-react/static/js/main.d267fb60.chunk.js",
+    "main.js.map": "/donde-coffee-react/static/js/main.d267fb60.chunk.js.map",
+    "runtime-main.js": "/donde-coffee-react/static/js/runtime-main.6cc17cbe.js",
+    "runtime-main.js.map": "/donde-coffee-react/static/js/runtime-main.6cc17cbe.js.map",
+    "static/css/2.39329f62.chunk.css": "/donde-coffee-react/static/css/2.39329f62.chunk.css",
+    "static/js/2.b3a459f7.chunk.js": "/donde-coffee-react/static/js/2.b3a459f7.chunk.js",
+    "static/js/2.b3a459f7.chunk.js.map": "/donde-coffee-react/static/js/2.b3a459f7.chunk.js.map",
+    "index.html": "/donde-coffee-react/index.html",
+    "precache-manifest.8c62bca5657bfb09c09eb59069404ab6.js": "/donde-coffee-react/precache-manifest.8c62bca5657bfb09c09eb59069404ab6.js",
+    "service-worker.js": "/donde-coffee-react/service-worker.js",
+    "static/css/2.39329f62.chunk.css.map": "/donde-coffee-react/static/css/2.39329f62.chunk.css.map",
+    "static/css/main.5f361e03.chunk.css.map": "/donde-coffee-react/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.b3a459f7.chunk.js.LICENSE.txt": "/donde-coffee-react/static/js/2.b3a459f7.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/donde-coffee-react/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6cc17cbe.js",
+    "static/css/2.39329f62.chunk.css",
+    "static/js/2.b3a459f7.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d267fb60.chunk.js"
+  ]
+}
