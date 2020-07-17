@@ -1,9 +1,7 @@
 import React, {useEffect, useState, Component } from 'react';
 import { BrowserRouter, Route, Link, withRouter, Switch } from 'react-router-dom'
 import './App.css';
-import { Users } from "./components/Users";
-import { Shops } from "./components/Shops";
-import { Container, Search } from "semantic-ui-react"
+// import { Container, Search } from "semantic-ui-react"
 import Home from "./components/Home"
 import { Navbar, Nav,NavDropdown } from 'react-bootstrap';
 
