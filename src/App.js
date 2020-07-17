@@ -3,10 +3,13 @@ import { BrowserRouter, Route, Link, withRouter, Switch } from 'react-router-dom
 import './App.css';
 import { Users } from "./components/Users";
 import { Shops } from "./components/Shops";
-import { Container } from "semantic-ui-react"
+import { Container, Search } from "semantic-ui-react"
 import Home from "./components/Home"
+import { Navbar, Nav,NavDropdown } from 'react-bootstrap';
+
 import Dashboard from "./components/Dashboard"
 // import Dashboard from "./Dashboard"
+import LocationResults from "./components/LocationResults"
 
 export default class App extends Component {
   constructor() {
@@ -28,18 +31,33 @@ export default class App extends Component {
 
   render() {
     return (
-        <div classname="App">
-        <BrowserRouter>
-        <Switch>
-            <Route exact path= {"/"} render={props => (
-              <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
-            )} />
-            <Route exact path={"/dashboard"} render={props => (
-              <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
-            )} />
-            </Switch>
-            </BrowserRouter>
-        </div>
+      <div className="App">
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="/">Donde Coffee</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+              <Nav.Link href="/search">Search</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+          </Navbar>
+      <BrowserRouter>
+      <Switch>
+          <Route exact path= {"/"} render={props => (
+            <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+          )} />
+          <Route exact path={"/dashboard"} render={props => (
+            <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
+          )} />
+          <Route path="/search">
+                <LocationResults />
+          </Route>
+      </Switch>
+      </BrowserRouter>
+
+
+      </div>
     )
   }
 }
