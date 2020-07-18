@@ -29,21 +29,28 @@ class LocationResults extends Component {
       this.setState({
         coffeeShops : response.data.shops
     })
-    //parse out the json response
   })
 }
 
 
   render() {
     const shops = this.state.coffeeShops.map((coffeeshop, i) => {
+      let image_url = coffeeshop.image_url
       let name = coffeeshop.name 
       let address = coffeeshop.address
       let phone = coffeeshop.phone
+      let price = coffeeshop.price
+      let rating = coffeeshop.rating
+      let distance = coffeeshop.distance
       return <CoffeeShop
           key={i}
+          image_url={image_url}
           name={name}
           address={address}
           phone={phone}
+          price={price}
+          rating={rating}
+          // distance={distance}
           ></CoffeeShop>
     })
 
@@ -56,8 +63,7 @@ class LocationResults extends Component {
         </label>
         <input type="submit" value="OK" />
       </form>
-
-        {this.state.value}
+        {/* {this.state.value} */}
         {shops}
       </div>
     );
