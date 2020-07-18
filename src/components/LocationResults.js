@@ -63,7 +63,7 @@ class LocationResults extends Component {
         </label>
         <input type="submit" value="OK" />
       </form>
-        {this.state.value}
+        {/* {this.state.value} */}
         {shops}
       </div>
     );
