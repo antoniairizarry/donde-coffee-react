@@ -37,6 +37,8 @@ export default class App extends Component {
             <Nav className="mr-auto">
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               <Nav.Link href="/search">Search</Nav.Link>
+              <Nav.Link href="/review">Review</Nav.Link>
+              <Nav.Link href="/favorites">Favorites</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           </Navbar>
@@ -49,6 +51,12 @@ export default class App extends Component {
             <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
           )} />
           <Route path="/search">
+                <LocationResults />
+          </Route>
+          <Route path="/review">
+                <LocationResults />
+          </Route>
+          <Route path="/favorites">
                 <LocationResults />
           </Route>
       </Switch>
