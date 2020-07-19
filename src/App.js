@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard"
 // import Dashboard from "./Dashboard"
 import LocationResults from "./components/LocationResults"
 import Users from "./components/Users"
+import ShopDetails from "./components/ShopDetails"
 
 export default class App extends Component {
   constructor() {
@@ -118,15 +119,16 @@ checkLoginStatus() {
           <Route exact path={"/dashboard"} render={props => (
             <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
           )} />
-          
+          <Route exact path="/search/:id" render={(props) =>      
+            <ShopDetails {...props} /> } />
           <Route path="/search">
-                <LocationResults />
+            <LocationResults />
           </Route>
           <Route path="/review">
-                <LocationResults />
+        
           </Route>
           <Route path="/favorites">
-                <LocationResults />
+          
           </Route>
           <Route path="/users">
                 <h1>Hello Users</h1>

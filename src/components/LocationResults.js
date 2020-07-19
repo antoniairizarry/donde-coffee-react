@@ -9,9 +9,10 @@ class LocationResults extends Component {
 
   constructor(props) {
     super(props);
+
     this.state = {
       value: '', 
-      coffeeShops:[]
+      coffeeShops_array:[]
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,31 +28,33 @@ class LocationResults extends Component {
     //after clicking ok, call Flask API (GET /coffeeshops)
     //ADDING AUTH HEADERS == TOKEN LIVES HERE
     axios.get('http://localhost:5000/coffeeshops?location=' + this.state.value,
-//SECOND PARAM OF .get using helper fx 
+    //SECOND PARAM OF .get using helper fx 
     {headers : getHeaders()}
     ).then((response) => {
       console.log(response)
       this.setState({
-        coffeeShops : response.data.coffeeshops
-    })
-  }).catch(function (error) {
+        coffeeShops_array : response.data.coffeeshops
+      })
+    }).catch(function (error) {
     // handle error
-    console.log(error);
-  })
-}
-
+      console.log(error);
+    })
+  }
 
   render() {
-    const shops = this.state.coffeeShops.map((coffeeshop, i) => {
+    const coffeshops = this.state.coffeeShops_array.map((coffeeshop, i) => {
+      let id = coffeeshop.id
       let image_url = coffeeshop.image_url
       let name = coffeeshop.name 
       let address = coffeeshop.address
       let phone = coffeeshop.phone
       let price = coffeeshop.price
       let rating = coffeeshop.rating
-      let distance = coffeeshop.distance
+      // let distance = coffeeshop.distance
+      
       return <CoffeeShop
           key={i}
+          id={id}
           image_url={image_url}
           name={name}
           address={address}
@@ -72,7 +75,7 @@ class LocationResults extends Component {
         <input type="submit" value="OK" />
       </form>
         {/* {this.state.value} */}
-        {shops}
+        {coffeshops}
       </div>
     );
   }
