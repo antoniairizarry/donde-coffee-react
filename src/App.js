@@ -4,10 +4,12 @@ import './App.css';
 // import { Container, Search } from "semantic-ui-react"
 import Home from "./components/Home"
 import { Navbar, Nav,NavDropdown } from 'react-bootstrap';
+import axios from 'axios'
 
 import Dashboard from "./components/Dashboard"
 // import Dashboard from "./Dashboard"
 import LocationResults from "./components/LocationResults"
+import Users from "./components/Users"
 
 export default class App extends Component {
   constructor() {
@@ -17,12 +19,76 @@ export default class App extends Component {
       user: {}
     };
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
+//   checkLoginStatus() {
+//     axios.get("http://localhost:5000/login")
+//     .then(response => {
+//   //   console.log("logged in?", response);
+//   // })
+//     if (response.data.login && this.state.loggedInStatus === "NOT_LOGGED_IN") {
+//       this.setState({
+//       loggedInStatus: "LOGGED_IN",
+//       user: response.user.data
+//       })
+//     } else if (!response.data.login & this.state.loggedInStatus === "LOGGED_IN") {
+//       this.setState({
+//         loggedInStatus: "NOT_LOGGED_IN",
+//         user: {}
+//       })
+//     }
+//   })
+//     .catch(error => {
+//     console.log("check login error", error)
+//   })
+// }
+
+checkLoginStatus() {
+  axios
+    .get("/users")
+    .then((response) => {
+      console.log("check login status response");
+      console.log(response);
+      if (
+        response.data.logged_in &&
+        this.state.loggedInStatus === "NOT_LOGGED_IN"
+      ) {
+        this.setState({
+          loggedInStatus: "LOGGED_IN",
+          user: response.data.user,
+        });
+      } else if (
+        !response.data.logged_in &
+        (this.state.loggedInStatus === "LOGGED_IN")
+      ) {
+        this.setState({
+          loggedInStatus: "NOT_LOGGED_IN",
+          user: {},
+        });
+      }
+    })
+    .catch((error) => {
+      console.log("check login error", error);
+    });
+}
+
+
+  componentDidMount() {
+    this.checkLoginStatus();
+  }
+
+  handleLogout() {
+    this.setState({
+      loggedInStatus: "NOT_LOGGED_IN",
+      user: {}
+    })
   }
 
   handleLogin(data) {
     this.setState({
       loggedInStatus: "LOGGED_IN",
-      user: data
+      user: data.user
     })
   }
 
@@ -45,11 +111,14 @@ export default class App extends Component {
       <BrowserRouter>
       <Switch>
           <Route exact path= {"/"} render={props => (
-            <Home {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.loggedInStatus} />
+            <Home {...props} handleLogin={this.handleLogin}
+                             handleLogout={this.handleLogout}
+                            loggedInStatus={this.state.loggedInStatus} />
           )} />
           <Route exact path={"/dashboard"} render={props => (
             <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
           )} />
+          
           <Route path="/search">
                 <LocationResults />
           </Route>
@@ -59,6 +128,10 @@ export default class App extends Component {
           <Route path="/favorites">
                 <LocationResults />
           </Route>
+          <Route path="/users">
+                <h1>Hello Users</h1>
+                < Users />
+                </Route>
       </Switch>
       </BrowserRouter>
 
