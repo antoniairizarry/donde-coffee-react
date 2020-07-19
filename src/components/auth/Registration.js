@@ -37,6 +37,8 @@ export default class Registration extends Component {
       console.log('registration res', response);
       if (response.status === 200){
         console.log('blah')
+        //SAVING TOKEN HERE
+        localStorage.setItem('token', response.data.token)
         this.props.handleSuccessfulAuth(response.data);}
     }).catch(error => {
       console.log("registration error", error);

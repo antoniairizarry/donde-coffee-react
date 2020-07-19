@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { List, Header } from "semantic-ui-react";
 
 export const Users = ({ users }) => {
@@ -14,4 +14,6 @@ export const Users = ({ users }) => {
       })}
     </List>
   )
-}
+
+};
+export default Users
