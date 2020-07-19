@@ -12,6 +12,7 @@ export default class Login extends Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit2 = this.handleSubmit2.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -44,10 +45,34 @@ export default class Login extends Component {
     event.preventDefault();
   }
 
+  handleSubmit2(event) {
+    const { email, password } = this.state;
+    //making a call to flask
+    axios.post("http://localhost:5000/login2", {      
+        username: email,
+        password: password
+  
+    },
+    // MAKE SURE THIS NEXT LINE DOESN'T BREAK THINGS
+    // { withCredentials: true }
+    ).then(response => {
+      console.log('res from login', response);
+      if (response.status === 200){
+        //KEY PART
+        //SAVE TOKEN TO LOCAL STORAGE
+        localStorage.setItem('token', response.data.token)
+        this.props.handleSuccessfulAuth(response.data);
+      }
+    }).catch(error => {
+      console.log("login error", error);
+    })
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit2}>
           <input
           type="email"
           name="email"
