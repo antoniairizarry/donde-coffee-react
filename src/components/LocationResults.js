@@ -24,11 +24,18 @@ class LocationResults extends Component {
   handleSubmit(event) {
     event.preventDefault();
     //after clicking ok, call Flask API (GET /coffeeshops)
-    axios.get('http://localhost:5000/coffeeshops?location=' + this.state.value).then((response) => {
+    //ADDING AUTH HEADERS == TOKEN LIVES HERE
+    axios.get('http://localhost:5000/coffeeshops?location=' + this.state.value,
+    //SECOND PARAM OF .get using helper fx
+    {headers : getHeaders()}
+    ).then((response) => {
       console.log(response)
       this.setState({
-        coffeeShops : response.data.shops
+        coffeeShops : response.data.coffeeshops
     })
+  }).catch(function (error) {
+    // handle error
+    console.log(error);
   })
 }
 
