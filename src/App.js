@@ -8,6 +8,7 @@ import { Navbar, Nav,NavDropdown } from 'react-bootstrap';
 import Dashboard from "./components/Dashboard"
 // import Dashboard from "./Dashboard"
 import LocationResults from "./components/LocationResults"
+import ShopDetails from "./components/ShopDetails"
 
 export default class App extends Component {
   constructor() {
@@ -50,14 +51,16 @@ export default class App extends Component {
           <Route exact path={"/dashboard"} render={props => (
             <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
           )} />
+          <Route exact path="/search/:id" render={(props) =>      
+            <ShopDetails {...props} /> } />
           <Route path="/search">
-                <LocationResults />
+            <LocationResults />
           </Route>
           <Route path="/review">
-                <LocationResults />
+        
           </Route>
           <Route path="/favorites">
-                <LocationResults />
+          
           </Route>
       </Switch>
       </BrowserRouter>
