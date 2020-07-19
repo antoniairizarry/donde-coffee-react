@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import './LocationResults.css';
 import CoffeeShop from './CoffeeShop'
+import {getHeaders} from '../Helpers'
 
 class LocationResults extends Component {
 
@@ -26,7 +27,7 @@ class LocationResults extends Component {
     //after clicking ok, call Flask API (GET /coffeeshops)
     //ADDING AUTH HEADERS == TOKEN LIVES HERE
     axios.get('http://localhost:5000/coffeeshops?location=' + this.state.value,
-    //SECOND PARAM OF .get using helper fx
+//SECOND PARAM OF .get using helper fx 
     {headers : getHeaders()}
     ).then((response) => {
       console.log(response)
