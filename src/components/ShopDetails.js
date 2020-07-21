@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import './ShopDetails.css';
 import CoffeeShop from './CoffeeShop'
-// https://stackoverflow.com/questions/39999367/how-do-i-reference-a-local-image-in-react
-import emptycup from '../images/emptycup.jpeg';
-import filledcup from '../images/filledcup.jpeg';
+
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as fasHeart} from '@fortawesome/free-solid-svg-icons'
