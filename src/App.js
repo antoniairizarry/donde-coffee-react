@@ -76,7 +76,7 @@ checkLoginStatus() {
 
 
   componentDidMount() {
-    this.checkLoginStatus();
+    //this.checkLoginStatus();
   }
 
   handleLogout() {
