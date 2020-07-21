@@ -34,7 +34,9 @@ class LocationResults extends Component {
         favorited_shop_ids: shop_ids_array
       })
     }).catch(function (error) {
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      }
       console.log("Error" + error);
     })  
   }
@@ -56,7 +58,9 @@ class LocationResults extends Component {
         coffeeShops_array : response.data.coffeeshops
       })
     }).catch(function (error) {
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      }
       console.log(error);
     })
   }

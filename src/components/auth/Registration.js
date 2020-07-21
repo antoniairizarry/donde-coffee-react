@@ -42,8 +42,10 @@ export default class Registration extends Component {
         localStorage.setItem('user_id', response.data.user_id)
         this.props.handleSuccessfulAuth(response.data);}
     }).catch(error => {
-      console.log("registration error", error);
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      }
+      console.log("registration error", error);      
     })
     event.preventDefault();
   }

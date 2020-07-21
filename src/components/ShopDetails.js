@@ -34,7 +34,9 @@ class ShopDetails extends Component {
       this.rating = response.data.coffeeshops.rating
       this.setState({name: response.data.coffeeshops.name})
     }).catch(function (error) {
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      }
       console.log("Error" + error);
     })  
 
@@ -47,7 +49,9 @@ class ShopDetails extends Component {
         favorited_shop_ids: shop_ids_array
       })
     }).catch(function (error) {
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
+      }
       console.log("Error" + error);
     })  
   }
