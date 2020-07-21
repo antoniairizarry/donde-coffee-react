@@ -12,11 +12,31 @@ class LocationResults extends Component {
 
     this.state = {
       value: '', 
-      coffeeShops_array:[]
+      coffeeShops_array:[],
+      favorited_shop_ids: []
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    //check if user has favorites already marked
+    //query table, ask flask if favorite exists
+    // GET '/favorites/<user_id>'
+    let user_id = 1
+    axios.get('http://localhost:5000/favorites/' + user_id,
+    {headers : getHeaders()}
+    ).then((response)=> {
+      console.log("hi" +response) 
+      let shop_ids_array = response.data.favorited_shop_ids
+      this.setState({
+        favorited_shop_ids: shop_ids_array
+      })
+    }).catch(function (error) {
+      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      console.log("Error" + error);
+    })  
   }
 
   handleChange(event) {
@@ -36,7 +56,7 @@ class LocationResults extends Component {
         coffeeShops_array : response.data.coffeeshops
       })
     }).catch(function (error) {
-    // handle error
+      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
       console.log(error);
     })
   }
@@ -61,6 +81,7 @@ class LocationResults extends Component {
           phone={phone}
           price={price}
           rating={rating}
+          favorited_shop_ids={this.state.favorited_shop_ids}
           // distance={distance}
           ></CoffeeShop>
     })

@@ -39,9 +39,11 @@ export default class Registration extends Component {
         console.log('blah')
         //SAVING TOKEN HERE
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user_id', response.data.user_id)
         this.props.handleSuccessfulAuth(response.data);}
     }).catch(error => {
       console.log("registration error", error);
+      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data )
     })
     event.preventDefault();
   }

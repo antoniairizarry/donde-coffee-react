@@ -61,10 +61,25 @@ export default class Login extends Component {
         //KEY PART
         //SAVE TOKEN TO LOCAL STORAGE
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('user_id', response.data.user_id)
         this.props.handleSuccessfulAuth(response.data);
       }
+      else{
+        console.log(response)
+        alert("Something went wrong with your login, try again.")
+      }
     }).catch(error => {
-      console.log("login error", error);
+      if (error.response) {
+        // client received an error response (5xx, 4xx)
+        console.log(error.response)
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      } else if (error.request) {
+        // client never received a response, or request never left
+        alert(error.response)
+      } else {
+        // anything else
+        alert(error)
+      }      
     })
     event.preventDefault();
   }
