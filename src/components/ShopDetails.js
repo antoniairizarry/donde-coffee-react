@@ -88,15 +88,15 @@ class ShopDetails extends Component {
           ></CoffeeShop> 
           <div>
             <ReviewForm 
-              shop_id={this.id}
-              name={this.state.name}
+              shop_id={this.state.coffeeshop.id}
+              name={this.state.coffeeshop.name}
             />
           </div>
           <div>
             <Reviews 
               // will get review based on shop
               isUserReviews={false}
-              shop_id={this.id}
+              shop_id={this.state.coffeeshop.id}
             />
           </div>
       </div>
