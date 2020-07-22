@@ -4,6 +4,8 @@ import axios from 'axios';
 import './ShopDetails.css';
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
+import ReviewForm from './ReviewForm'
+import Reviews from './Reviews'
 
 class ShopDetails extends Component {
 
@@ -73,6 +75,19 @@ class ShopDetails extends Component {
           favorited_shop_ids={this.state.favorited_shop_ids}
           // distance={distance}
           ></CoffeeShop> 
+          <div>
+            <ReviewForm 
+              shop_id={this.id}
+              name={this.state.name}
+            />
+          </div>
+          <div>
+            <Reviews 
+              // will get review based on shop
+              isUserReviews={false}
+              shop_id={this.id}
+            />
+          </div>
       </div>
     );
   }
