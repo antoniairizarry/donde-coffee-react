@@ -13,10 +13,11 @@ class CoffeeShop extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filled: false
-    };
+      favorited_shop_ids: this.props.favorited_shop_ids,
+      filled:  this.props.favorited_shop_ids.includes(this.props.id)
+    }
   }
-  componentDidMount() {
+  componentDidUpdate(prevProps) {
    
     //check if user has favorites already marked
     //query table, ask flask if favorite exists
@@ -35,26 +36,37 @@ class CoffeeShop extends Component {
     //       this.setState({ filled: false });
     //    }  
     // });  
+    if (this.props.favorited_shop_ids !== prevProps.favorited_shop_ids){
+      this.setState({
+        favorited_shop_ids: this.props.favorited_shop_ids
+      })
+    }
 
 
-  if(this.props.favorited_shop_ids.includes(this.props.id)){
-      this.setState({ filled: true });
-   } else{
-      this.setState({ filled: false });
-   }  
 }
 
   handleClick = () => {
-    this.setState({ filled: !this.state.filled });
+    //this.setState({ filled: !this.state.filled });
     axios.post("http://localhost:5000/togglefavorite", {      
         user_id: 1,
         shop_id: this.props.id
     },
     {headers : getHeaders()})
     .then(response => {
+      if (response.data.toggledfavorite.action === 'unfavorited'){
+        this.setState({
+          favorited_shop_ids : []
+        })
+      } else{
+        this.setState({
+          favorited_shop_ids : [response.data.toggledfavorite.shop_id]
+        })
+      }
       console.log(response);
     }).catch(function (error) {
-      alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      if(error.response){
+        alert(error.response.status + ":" +error.response.statusText + ":"+ error.response.data.msg )
+      }
       console.log(error);
     })
   }
@@ -72,7 +84,7 @@ class CoffeeShop extends Component {
         <div className='coffeeshop-rating'>{this.props.rating}</div>
         {/* <div className='coffeeshop-distance'>{this.props.distance}</div> */}
         <div onClick={this.handleClick} >
-          <FontAwesomeIcon icon={this.state.filled ? fasHeart : faHeart}/>
+          <FontAwesomeIcon icon={this.state.favorited_shop_ids.includes(this.props.id) ? fasHeart : faHeart}/>
         </div>
       </div>
     );
