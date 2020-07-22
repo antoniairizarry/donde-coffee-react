@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Input, Rating, Button } from 'semantic-ui-react';
 import CoffeeShop from './CoffeeShop'
+import Header from './header.js';
+import Footer from './footer.js'
 
 export const ReviewForm = ({onNewReview}) => {
   const [body, setBody] = useState('');
@@ -9,6 +11,8 @@ export const ReviewForm = ({onNewReview}) => {
   const [shop_id, setShopID] = useState('')
 
   return(
+    <>
+    <Header />
     <Form>
       <Form.Field>
         <Input placeholder="Enter your review!" value={body}
@@ -44,6 +48,8 @@ export const ReviewForm = ({onNewReview}) => {
         </Button>
       </Form.Field>
     </Form>
+    <Footer />
+      </>
   );
 }
 

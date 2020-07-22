@@ -4,6 +4,8 @@ import axios from 'axios';
 import './Favorites.css';
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
+import Header from './header.js';
+import Footer from './footer.js'
 
 class Favorites extends Component {
 
@@ -102,9 +104,13 @@ class Favorites extends Component {
     })
 
     return (
+      <>
+      <Header />
       <div>
         {coffeshops}
       </div>
+      <Footer />
+      </>
     );
   }
 

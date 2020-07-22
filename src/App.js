@@ -99,18 +99,18 @@ checkLoginStatus() {
   render() {
     return (
       <div className="App">
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Donde Coffee</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="/search">Search</Nav.Link>
-              <Nav.Link href="/review">Review</Nav.Link>
-              <Nav.Link href="/favorites">Favorites</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          </Navbar>
+      {/* //   <Navbar bg="light" expand="lg">
+      //     <Navbar.Brand href="/">Donde Coffee</Navbar.Brand>
+      //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      //     <Navbar.Collapse id="basic-navbar-nav">
+      //       <Nav className="mr-auto">
+      //         <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+      //         <Nav.Link href="/search">Search</Nav.Link>
+      //         <Nav.Link href="/review">Review</Nav.Link>
+      //         <Nav.Link href="/favorites">Favorites</Nav.Link>
+      //       </Nav>
+      //     </Navbar.Collapse>
+      //     </Navbar> */}
       <BrowserRouter>
       <Switch>
           <Route exact path= {"/"} render={props => (
