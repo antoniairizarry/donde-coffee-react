@@ -12,6 +12,8 @@ import LocationResults from "./components/LocationResults"
 import Users from "./components/Users"
 import ShopDetails from "./components/ShopDetails"
 import Favorites from "./components/Favorites"
+import ReviewForm from "./components/ReviewForm"
+import Reviews from "./components/Reviews"
 
 export default class App extends Component {
   constructor() {
@@ -105,7 +107,7 @@ checkLoginStatus() {
             <Nav className="mr-auto">
               <Nav.Link href="/dashboard">Dashboard</Nav.Link>
               <Nav.Link href="/search">Search</Nav.Link>
-              <Nav.Link href="/review">Review</Nav.Link>
+              <Nav.Link href="/reviews">Review</Nav.Link>
               <Nav.Link href="/favorites">Favorites</Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -125,8 +127,8 @@ checkLoginStatus() {
           <Route path="/search">
             <LocationResults />
           </Route>
-          <Route path="/review">
-        
+          <Route path="/reviews" >
+            <Reviews isUserReviews={true} ></Reviews>
           </Route>
           <Route path="/favorites">
             <Favorites />
