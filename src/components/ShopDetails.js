@@ -4,6 +4,8 @@ import axios from 'axios';
 import './ShopDetails.css';
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
+import ReviewForm from './ReviewForm'
+import Reviews from './Reviews'
 
 class ShopDetails extends Component {
 
@@ -84,6 +86,19 @@ class ShopDetails extends Component {
           filled={(this.state.coffeeshop.favorited_shop_ids.includes(this.props.id))? true : false}
           // distance={distance}
           ></CoffeeShop> 
+          <div>
+            <ReviewForm 
+              shop_id={this.state.coffeeshop.id}
+              name={this.state.coffeeshop.name}
+            />
+          </div>
+          <div>
+            <Reviews 
+              // will get review based on shop
+              isUserReviews={false}
+              shop_id={this.state.coffeeshop.id}
+            />
+          </div>
       </div>
     );
   }
