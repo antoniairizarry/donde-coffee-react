@@ -2,6 +2,7 @@ import React, { Component, header } from 'react';
 import axios from 'axios';
 import Header from '../header.js';
 import Footer from '../footer.js'
+import { Form, Button, Container, Row, Card} from 'react-bootstrap'
 
 export default class Registration extends Component {
   constructor(props) {
@@ -62,30 +63,43 @@ export default class Registration extends Component {
     return (
       <>
       <Header />
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-          type="email"
-          name="email"
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Container fluid="sm">
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group input
+          type="email">
+          <Form.Control name="email"
           placeholder="Email"
           value={this.state.email}
           onChange={this.handleChange} required />
-          <input
-          type="name"
-          name="name"
+          </Form.Group>
+          <Form.Group input
+          type="name">
+          <Form.Control name="name"
           placeholder="Name"
           value={this.state.name}
           onChange={this.handleChange} required />
-          <input
-          type="password"
-          name="password"
+          </Form.Group>
+          <Form.Group input
+          type="password">
+          <Form.Control name="password"
           placeholder="Password"
           value={this.state.password}
           onChange={this.handleChange} required />
+          </Form.Group>
 
-          <button type="submit">Register</button>
-        </form>
-      </div>
+<Button variant="primary" type="submit">
+    Submit
+  </Button>
+        </Form>
+        </Container>
+        <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Footer />
       </>
     )

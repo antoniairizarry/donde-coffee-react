@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Header from '../header.js';
 import Footer from '../footer.js'
+import { Form, Button, Container, Row} from 'react-bootstrap'
 
 export default class Login extends Component {
   constructor(props) {
@@ -96,25 +97,35 @@ export default class Login extends Component {
     return (
       <>
       <Header />
-      <div>
-        <form onSubmit={this.handleSubmit2}>
-          <input
-          type="email"
-          name="email"
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <Container fluid="sm">
+        <Form onSubmit={this.handleSubmit2}>
+          <Form.Group input
+          type="email">
+          <Form.Control name="email"
           placeholder="Email"
           value={this.state.email}
           onChange={this.handleChange} required />
+          </Form.Group>
 
-          <input
-          type="password"
-          name="password"
+          <Form.Group input
+          type="password">
+          <Form.Control name="password"
           placeholder="Password"
           value={this.state.password}
           onChange={this.handleChange} required />
+          </Form.Group>
 
           <button type="submit">Login</button>
-        </form>
-      </div>
+        </Form>
+      </Container>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
       <Footer />
       </>
       );
