@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from '../header.js';
+import Footer from '../footer.js'
 
 export default class Login extends Component {
   constructor(props) {
@@ -14,6 +16,12 @@ export default class Login extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit2 = this.handleSubmit2.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
+  }
+  handleSuccessfulAuth(data) {
+    this.props.handleLogin(data);
+    this.props.history.push("/dashboard")
+    console.log("hi")
   }
 
   handleChange(event) {
@@ -86,6 +94,8 @@ export default class Login extends Component {
 
   render() {
     return (
+      <>
+      <Header />
       <div>
         <form onSubmit={this.handleSubmit2}>
           <input
@@ -104,6 +114,9 @@ export default class Login extends Component {
 
           <button type="submit">Login</button>
         </form>
-      </div>);
+      </div>
+      <Footer />
+      </>
+      );
   }
 }

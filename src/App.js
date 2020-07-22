@@ -5,6 +5,8 @@ import './App.css';
 import Home from "./components/Home"
 import { Navbar, Nav,NavDropdown } from 'react-bootstrap';
 import axios from 'axios'
+import Registration from "./components/auth/Registration";
+import Login from "./components/auth/Login";
 
 import Dashboard from "./components/Dashboard"
 // import Dashboard from "./Dashboard"
@@ -100,25 +102,29 @@ checkLoginStatus() {
   render() {
     return (
       <div className="App">
-        <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="/">Donde Coffee</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="mr-auto">
-              <Nav.Link href="/dashboard">Dashboard</Nav.Link>
-              <Nav.Link href="/search">Search</Nav.Link>
-              <Nav.Link href="/reviews">Review</Nav.Link>
-              <Nav.Link href="/favorites">Favorites</Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          </Navbar>
+      {/* //   <Navbar bg="light" expand="lg">
+      //     <Navbar.Brand href="/">Donde Coffee</Navbar.Brand>
+      //     <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      //     <Navbar.Collapse id="basic-navbar-nav">
+      //       <Nav className="mr-auto">
+      //         <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+      //         <Nav.Link href="/search">Search</Nav.Link>
+      //         <Nav.Link href="/review">Review</Nav.Link>
+      //         <Nav.Link href="/favorites">Favorites</Nav.Link>
+      //       </Nav>
+      //     </Navbar.Collapse>
+      //     </Navbar> */}
       <BrowserRouter>
       <Switch>
           <Route exact path= {"/"} render={props => (
-            <Home {...props} handleLogin={this.handleLogin}
-                             handleLogout={this.handleLogout}
-                            loggedInStatus={this.state.loggedInStatus} />
+            <Home {...props} />
           )} />
+
+        <Route exact path={"/login"} render={props => (
+            <Login {...props} handleLogin={this.handleLogin}/>
+        )} />
+          <Route exact path={"/register"} render={props => (
+            <Registration {...props}/> )} />
           <Route exact path={"/dashboard"} render={props => (
             <Dashboard {...props} loggedInStatus={this.state.loggedInStatus}/>
           )} />

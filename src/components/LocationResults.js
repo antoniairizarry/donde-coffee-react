@@ -4,6 +4,8 @@ import axios from 'axios';
 import './LocationResults.css';
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
+import Header from './header.js';
+import Footer from './footer.js'
 
 class LocationResults extends Component {
 
@@ -65,6 +67,7 @@ class LocationResults extends Component {
     })
   }
 
+
   render() {
     const coffeshops = this.state.coffeeShops_array.map((coffeeshop, i) => {
       let id = coffeeshop.id
@@ -91,7 +94,8 @@ class LocationResults extends Component {
     })
 
     return (
-      <div>
+      <>
+      <Header />
         <form onSubmit={this.handleSubmit}>
         <label>
           Location:
@@ -99,9 +103,11 @@ class LocationResults extends Component {
         </label>
         <input type="submit" value="OK" />
       </form>
+      
         {/* {this.state.value} */}
         {coffeshops}
-      </div>
+      <Footer />
+      </>
     );
   }
 

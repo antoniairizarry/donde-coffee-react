@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Input, Rating, Button } from 'semantic-ui-react';
 import CoffeeShop from './CoffeeShop'
+import Header from './header.js';
+import Footer from './footer.js'
 import {getHeaders} from '../Helpers'
 import axios from 'axios';
 
@@ -33,6 +35,8 @@ export const ReviewForm = (props) => {
   }
 
   return(
+    <>
+    <Header />
     <Form>
       <Form.Field>
         <Input placeholder="Enter your review!" value={body}
@@ -51,6 +55,8 @@ export const ReviewForm = (props) => {
         </Button>
       </Form.Field>
     </Form>
+    <Footer />
+      </>
   );
 }
 
