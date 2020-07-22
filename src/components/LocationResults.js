@@ -6,6 +6,7 @@ import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
 import Header from './header.js';
 import Footer from './footer.js'
+import { Form, Button, Container } from 'react-bootstrap'
 
 class LocationResults extends Component {
 
@@ -94,20 +95,29 @@ class LocationResults extends Component {
     })
 
     return (
-      <>
-      <Header />
-        <form onSubmit={this.handleSubmit}>
-        <label>
-          Location:
-          <input type="text" value={this.state.value} onChange={this.handleChange}/>
-        </label>
-        <input type="submit" value="OK" />
-      </form>
-      
-        {/* {this.state.value} */}
-        {coffeshops}
-      <Footer />
-      </>
+      <div  >
+        <Header />
+        <div className="wrapper" >
+        <aside className="aside aside-1"></aside>
+
+          <div className='main'>
+            <Container fluid="sm">
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="formSearch">
+                  <Form.Label>Location</Form.Label>
+                  <Form.Control type="text" placeholder="Enter Zip Code" />
+                  <Form.Text className="text-muted">Coffee Time! </Form.Text>
+                </Form.Group>
+                <Button variant="primary" type="submit">Submit</Button>
+              </Form>
+            </Container>
+            {coffeshops}
+          </div>
+        
+        <aside className="aside aside-2"></aside>
+        </div>
+        <Footer className="footer" />
+      </div>
     );
   }
 
