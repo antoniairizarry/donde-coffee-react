@@ -1,0 +1,14 @@
+
+
+.wrapper{
+  display: flex;
+  justify-content: space-between;
+}
+
+.main{
+  flex-grow: 4;
+}
+
+.aside{
+  flex-grow: 1;
+}

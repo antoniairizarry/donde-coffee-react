@@ -7,34 +7,34 @@ class Header extends Component {
   render() {
     return (
       //area where you paste your HTML code
-      <>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-      <div class="container">
-          <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="../img/logo-via-logohub.png" alt="" /></a>
-          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-              Menu
-              <i class="fas fa-bars ml-1"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-              <ul class="navbar-nav text-uppercase ml-auto">
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Register</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dashboard">Dashboard</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/search">Search</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reviews">Reviews</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/favorites">Favorites</a></li>
-              </ul>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+          <div className="container">
+              <a className="navbar-brand js-scroll-trigger" href="#page-top"><img src="../img/logo-via-logohub.png" alt="" /></a>
+              <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  Menu
+                  <i className="fas fa-bars ml-1"></i>
+              </button>
+              <div className="collapse navbar-collapse" id="navbarResponsive">
+                  <ul className="navbar-nav text-uppercase ml-auto">
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/register">Register</a></li>
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/login">Login</a></li>
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/dashboard">Dashboard</a></li>
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/search">Search</a></li>
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/reviews">Reviews</a></li>
+                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/favorites">Favorites</a></li>
+                  </ul>
+              </div>
           </div>
+        </nav>
+        <header className="masthead">
+          <div className="container">
+              <div className="masthead-subheading">Welcome To Our Studio!</div>
+              <div className="masthead-heading text-uppercase">It's Nice To Meet You</div>
+              <a className="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
+          </div>
+        </header>
       </div>
-  </nav>
-          <header class="masthead">
-          <div class="container">
-              <div class="masthead-subheading">Welcome To Our Studio!</div>
-              <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
-              <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
-          </div>
-      </header>
-      </>
     )
   }
 } export default Header;
