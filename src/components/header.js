@@ -17,11 +17,12 @@ class Header extends Component {
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav text-uppercase ml-auto">
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Register</a></li>
+                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Login</a></li>
                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/dashboard">Dashboard</a></li>
                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/search">Search</a></li>
                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/reviews">Reviews</a></li>
                   <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/favorites">Favorites</a></li>
-                  <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
               </ul>
           </div>
       </div>
