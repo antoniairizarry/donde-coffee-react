@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Router, Route, Switch } from 'react-router-dom';
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Background from './nathan-dumlao-I_394sxx0ec-unsplash.jpg';
+import Background from './bg.png';
 import Logo from './logo-via-logohub.png';
 import "./header.css";
 
