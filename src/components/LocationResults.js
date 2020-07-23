@@ -95,23 +95,25 @@ class LocationResults extends Component {
     })
 
     return (
-      <div  >
+      <div>
         <Header />
         <div className="wrapper" >
         <aside className="aside aside-1"></aside>
 
           <div className='main'>
-            <Container fluid="sm">
+            <Container className="formPadding" fluid="sm">
               <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formSearch">
                   <Form.Label>Location</Form.Label>
-                  <Form.Control type="text" placeholder="Enter Zip Code" />
+                  <Form.Control type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter Zip Code" />
                   <Form.Text className="text-muted">Coffee Time! </Form.Text>
                 </Form.Group>
                 <Button variant="primary" type="submit">Submit</Button>
               </Form>
             </Container>
-            {coffeshops}
+            <div className="coffeeshopsWrapper">
+              {coffeshops}
+            </div>
           </div>
         
         <aside className="aside aside-2"></aside>
