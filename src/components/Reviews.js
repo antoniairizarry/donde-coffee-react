@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import axios from 'axios';
 import './Reviews.css';
 import {getHeaders} from '../Helpers'
+import Header from './header.js';
+import Footer from './footer.js'
+import { Form, Button, Container, Row, Card, CardGroup, Grid, Col, CardDeck} from 'react-bootstrap'
 
 class Reviews extends Component {
 
@@ -47,30 +50,52 @@ class Reviews extends Component {
 
   render() {
     const reviews = this.state.reviews.map((review, i) => {
-
+      
       return <div key={i}>
-        <div>
-          Name: {review.user_name}
+        {/* <Container>
+        <Row>
+          <Col md={4}> */}
+        <Card border="info" style={{ width: '20rem' }}>
+        {/* <div> */}
+          {/* Name: {review.user_name}
         </div>
         <div>
           Name: {review.user_email}
         </div>
         <div>
           Shop ID: {review.shop_id}
+        </div> */}
+        <div>
+          <Card.Header>{review.shop_name}</Card.Header>
         </div>
         <div>
-          Shop Name: {review.shop_name}
+          {/* <Card.Title>Review:</Card.Title> */}
+          <Card.Text>{review.body}</Card.Text>
         </div>
-        <div>
-          Review: {review.body}
+        </Card>
+        {/* </Col>
+        </Row>
+        </Container> */}
+        <br></br>
+        <br></br>
         </div>
-      </div>
     })
 
     return (
-      <div>
+      <>
+      <Header />
+      <br></br>
+      <h1>Your Reviews</h1>
+      <br></br>
+      <div className="wrapper" >
+      <CardDeck>
+
         {reviews}
-      </div>
+        </CardDeck>
+        </div>
+
+      <Footer />
+      </>
     );
   }
 
