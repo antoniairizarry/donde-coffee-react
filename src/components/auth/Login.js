@@ -119,7 +119,7 @@ export default class Login extends Component {
           onChange={this.handleChange} required />
           </Form.Group>
 
-          <button type="submit">Login</button>
+          <Button variant="info">Login</Button>
         </Form>
       </Container>
       <br></br>

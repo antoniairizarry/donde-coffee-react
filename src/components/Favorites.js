@@ -106,7 +106,7 @@ class Favorites extends Component {
     return (
       <>
       <Header />
-      <div>
+      <div className="coffeeshopsWrapper">
         {coffeshops}
       </div>
       <Footer />

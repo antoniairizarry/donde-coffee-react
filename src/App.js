@@ -17,7 +17,8 @@ import Favorites from "./components/Favorites"
 import ReviewForm from "./components/ReviewForm"
 import Reviews from "./components/Reviews"
 import About from "./components/About"
-
+import Footer from './components/footer';
+import Header from './components/header';
 export default class App extends Component {
   constructor() {
     super();
@@ -135,7 +136,9 @@ checkLoginStatus() {
             <LocationResults />
           </Route>
           <Route path="/reviews" >
+            <Header />
             <Reviews isUserReviews={true} ></Reviews>
+            <Footer />
           </Route>
           <Route path="/favorites">
             <Favorites />

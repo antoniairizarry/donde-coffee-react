@@ -27,7 +27,6 @@ class Header extends Component {
                   <ul className="navbar-nav text-uppercase ml-auto">
                       <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/register">Register</a></li>
                       <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/login">Login</a></li>
-                      <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/dashboard">Dashboard</a></li>
                       <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/search">Search</a></li>
                       <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/reviews">Reviews</a></li>
                       <li className="nav-item"><a className="nav-link js-scroll-trigger" href="/favorites">Favorites</a></li>
