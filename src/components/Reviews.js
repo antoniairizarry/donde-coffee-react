@@ -66,6 +66,7 @@ class Reviews extends Component {
           Shop ID: {review.shop_id}
         </div> */}
         <div>
+        <Card.Img className="shopImage" variant="top" src={review.image_url} />
           <Card.Header>{review.shop_name}</Card.Header>
         </div>
         <div>
