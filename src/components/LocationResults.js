@@ -108,7 +108,7 @@ class LocationResults extends Component {
                   <Form.Control type="text" value={this.state.value} onChange={this.handleChange} placeholder="Enter Zip Code" />
                   <Form.Text className="text-muted">Coffee Time! </Form.Text>
                 </Form.Group>
-                <Button variant="primary" type="submit">Submit</Button>
+                <Button variant="info">Submit</Button>
               </Form>
             </Container>
             <div className="coffeeshopsWrapper">
