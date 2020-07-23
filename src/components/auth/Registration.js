@@ -91,7 +91,7 @@ export default class Registration extends Component {
           onChange={this.handleChange} required />
           </Form.Group>
 
-<Button variant="primary" type="submit">
+<Button variant="info" type="submit">
     Submit
   </Button>
         </Form>
