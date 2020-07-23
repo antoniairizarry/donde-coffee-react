@@ -16,6 +16,7 @@ import ShopDetails from "./components/ShopDetails"
 import Favorites from "./components/Favorites"
 import ReviewForm from "./components/ReviewForm"
 import Reviews from "./components/Reviews"
+import About from "./components/About"
 
 export default class App extends Component {
   constructor() {
@@ -142,7 +143,10 @@ checkLoginStatus() {
           <Route path="/users">
                 <h1>Hello Users</h1>
                 < Users />
-                </Route>
+          </Route>
+          <Route path="/about">
+            < About />
+          </Route>
       </Switch>
       </BrowserRouter>
 

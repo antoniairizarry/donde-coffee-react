@@ -9,13 +9,11 @@ class Footer extends Component {
           <div className="row align-items-center">
               <div className="col-lg-4 text-lg-left">Copyright © Kate + Antonia 2020</div>
               <div className="col-lg-4 my-3 my-lg-0">
-                  <a className="btn btn-dark btn-social mx-2" href="#!"><i className="fab fa-twitter"></i></a>
-                  <a className="btn btn-dark btn-social mx-2" href="#!"><i className="fab fa-facebook-f"></i></a>
-                  <a className="btn btn-dark btn-social mx-2" href="#!"><i className="fab fa-linkedin-in"></i></a>
+                  <a className="btn btn-dark btn-social mx-2" href="https://github.com/katemyer/donde_coffee" img src="../img/githubk.png" target="_blank"><i className="fab fa-github"></i></a>
+                  <a className="btn btn-dark btn-social mx-2" href="https://github.com/antoniairizarry/donde-coffee-react" img src="../img/githuba.jpeg" target="_blank"><i className="fab fa-github"></i></a>
               </div>
               <div className="col-lg-4 text-lg-right">
-                  <a className="mr-3" href="#!">Privacy Policy</a>
-                  <a href="#!">Terms of Use</a>
+             
               </div>
           </div>
       </div>
