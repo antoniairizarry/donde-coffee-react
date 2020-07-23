@@ -4,7 +4,7 @@ import axios from 'axios';
 import './LocationResults.css';
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
-import Header from './header.js';
+import Header from './header.js'
 import Footer from './footer.js'
 import { Form, Button, Container } from 'react-bootstrap'
 
