@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import './ShopDetails.css';
+import Header from './header.js'
+import Footer from './footer.js'
 import CoffeeShop from './CoffeeShop'
 import {getHeaders} from '../Helpers'
 import ReviewForm from './ReviewForm'
 import Reviews from './Reviews'
+
 
 class ShopDetails extends Component {
 
@@ -73,32 +76,36 @@ class ShopDetails extends Component {
 
     return (
       <div>
-        <CoffeeShop
-          key={this.state.coffeeshop.id}
-          id={this.state.coffeeshop.id}
-          image_url={this.state.coffeeshop.image_url}
-          name={this.state.coffeeshop.name}
-          address={this.state.coffeeshop.address}
-          phone={this.state.coffeeshop.phone}
-          price={this.state.coffeeshop.price}
-          rating={this.state.coffeeshop.rating}
-          favorited_shop_ids={this.state.coffeeshop.favorited_shop_ids}
-          filled={(this.state.coffeeshop.favorited_shop_ids.includes(this.props.id))? true : false}
-          // distance={distance}
-          ></CoffeeShop> 
-          <div>
-            <ReviewForm 
-              shop_id={this.state.coffeeshop.id}
-              name={this.state.coffeeshop.name}
-            />
-          </div>
-          <div>
-            <Reviews 
-              // will get review based on shop
-              isUserReviews={false}
-              shop_id={this.state.coffeeshop.id}
-            />
-          </div>
+        <Header />
+        <div className="coffeeShopWrapper">
+          <CoffeeShop
+            key={this.state.coffeeshop.id}
+            id={this.state.coffeeshop.id}
+            image_url={this.state.coffeeshop.image_url}
+            name={this.state.coffeeshop.name}
+            address={this.state.coffeeshop.address}
+            phone={this.state.coffeeshop.phone}
+            price={this.state.coffeeshop.price}
+            rating={this.state.coffeeshop.rating}
+            favorited_shop_ids={this.state.coffeeshop.favorited_shop_ids}
+            filled={(this.state.coffeeshop.favorited_shop_ids.includes(this.props.id))? true : false}
+            // distance={distance}
+            ></CoffeeShop> 
+        </div>
+        <div>
+          <ReviewForm 
+            shop_id={this.state.coffeeshop.id}
+            name={this.state.coffeeshop.name}
+          />
+        </div>
+        <div>
+          <Reviews 
+            // will get review based on shop
+            isUserReviews={false}
+            shop_id={this.state.coffeeshop.id}
+          />
+        </div>
+        <Footer />  
       </div>
     );
   }

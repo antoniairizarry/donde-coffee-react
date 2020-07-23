@@ -83,7 +83,7 @@ class Reviews extends Component {
 
     return (
       <>
-      <Header />
+
       <br></br>
       <h1>Your Reviews</h1>
       <br></br>
@@ -94,7 +94,6 @@ class Reviews extends Component {
         </CardDeck>
         </div>
 
-      <Footer />
       </>
     );
   }
