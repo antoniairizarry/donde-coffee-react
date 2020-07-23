@@ -52,31 +52,15 @@ class Reviews extends Component {
     const reviews = this.state.reviews.map((review, i) => {
       
       return <div key={i}>
-        {/* <Container>
-        <Row>
-          <Col md={4}> */}
         <Card border="info" style={{ width: '20rem' }}>
-        {/* <div> */}
-          {/* Name: {review.user_name}
-        </div>
-        <div>
-          Name: {review.user_email}
-        </div>
-        <div>
-          Shop ID: {review.shop_id}
-        </div> */}
-        <div>
+        
         <Card.Img className="shopImage" variant="top" src={review.image_url} />
-          <Card.Header>{review.shop_name}</Card.Header>
-        </div>
-        <div>
-          {/* <Card.Title>Review:</Card.Title> */}
+        <Card.Body>
+          <Card.Title>{review.shop_name}</Card.Title>
           <Card.Text>{review.body}</Card.Text>
-        </div>
+        </Card.Body>
         </Card>
-        {/* </Col>
-        </Row>
-        </Container> */}
+        
         <br></br>
         <br></br>
         </div>
