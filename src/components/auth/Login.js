@@ -14,7 +14,7 @@ export default class Login extends Component {
       loginErrors: ""
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit2 = this.handleSubmit2.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
@@ -119,7 +119,7 @@ export default class Login extends Component {
           onChange={this.handleChange} required />
           </Form.Group>
 
-          <Button variant="info">Login</Button>
+          <Button variant="info" type="submit">Login</Button>
         </Form>
       </Container>
       <br></br>
