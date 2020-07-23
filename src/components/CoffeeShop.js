@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart as fasHeart} from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import {getHeaders} from '../Helpers'
+import { Button, Card } from 'react-bootstrap'
+import { withRouter } from "react-router-dom";
 
 class CoffeeShop extends Component {
 
@@ -71,22 +73,46 @@ class CoffeeShop extends Component {
     })
   }
 
+
   render() {
+
     let base_url = "/search/"+ this.props.id 
 
     return (
-      <div className='coffeeshop-card'>
-        <a href={base_url}><div className='coffeeshop-image-url'><img src={this.props.image_url}/></div></a>
-        <a href={base_url}><div className='coffeeshop-name'>{this.props.name}</div></a>
-        <div className='coffeeshop-address'>{this.props.address}</div>
-        <div className='coffeeshop-phone'>{this.props.phone}</div>
-        <div className='coffeeshop-price'>{this.props.price}</div>
-        <div className='coffeeshop-rating'>{this.props.rating}</div>
-        {/* <div className='coffeeshop-distance'>{this.props.distance}</div> */}
-        <div onClick={this.handleClick} >
-          <FontAwesomeIcon icon={this.state.favorited_shop_ids.includes(this.props.id) ? fasHeart : faHeart}/>
-        </div>
-      </div>
+      <div>
+        <Card style={{ width: '28rem' }}>
+          <Card.Img className="shopImage" variant="top" src={this.props.image_url} />
+
+          <Card.Body>
+
+            <Card.Title>
+              <div className="cardtitleWrapper">
+                <div className='coffeeshop-name'>
+                  <a href={base_url}>{this.props.name}</a>
+                </div>
+                <div className="priceheartWrapper">
+                  <div className='coffeeshop-price'>{this.props.price}</div>
+
+                  <div onClick={this.handleClick} >
+                      <FontAwesomeIcon icon={this.state.favorited_shop_ids.includes(this.props.id) ? fasHeart : faHeart}/>
+                  </div>
+                </div>
+              </div>
+
+            </Card.Title>
+          
+              <div className="shopDetails">
+                <div className='coffeeshop-address'>{this.props.address}</div>
+                <div className='coffeeshop-phone'>{this.props.phone}</div>
+                
+                <div className='coffeeshop-rating'>{this.props.rating}</div>
+                {/* <div className='coffeeshop-distance'>{this.props.distance}</div> */}
+              
+              </div>
+
+          </Card.Body>
+      </Card>
+    </div>
     );
   }
 

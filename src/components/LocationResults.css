@@ -3,6 +3,11 @@
 .wrapper{
   display: flex;
   justify-content: space-between;
+  padding: 20px;
+}
+.coffeeshopsWrapper{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .main{
@@ -11,4 +16,7 @@
 
 .aside{
   flex-grow: 1;
+}
+.formPadding{
+  padding: 20px;
 }
