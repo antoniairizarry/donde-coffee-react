@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Form, Input, Rating, Button } from 'semantic-ui-react';
+import { Rating } from 'semantic-ui-react';
+import { Form, Button, Container } from 'react-bootstrap'
 import CoffeeShop from './CoffeeShop'
 import Header from './header.js';
 import Footer from './footer.js'
 import {getHeaders} from '../Helpers'
 import axios from 'axios';
+
 
 export const ReviewForm = (props) => {
   const [body, setBody] = useState('');
@@ -36,26 +38,21 @@ export const ReviewForm = (props) => {
 
   return(
     <>
-    <Header />
-    <Form>
-      <Form.Field>
-        <Input placeholder="Enter your review!" value={body}
-        onChange={e => setBody(e.target.value)} />
-      </Form.Field>
-      <Form.Field>
-        <Rating icon='star' value={rating} maxRating={5} onRate={(_, data) => {
+
+      <Container className="formPadding" fluid="sm">
+        <Form onSubmit={handleClick}>
+          <Form.Group controlId="formSearch">
+            <Form.Label>Review Form</Form.Label>
+            <Form.Control type="text" value={body} onChange={e => setBody(e.target.value)} placeholder="Enter your review!" />
+            <Rating icon='star' value={rating} maxRating={5} onRate={(_, data) => {
           console.log(data);
         }} />
-        </Form.Field>
-      <Form.Field>
-        <Button
-          onClick={handleClick}
-        >
-          submit
-        </Button>
-      </Form.Field>
-    </Form>
-    <Footer />
+          </Form.Group>
+          <Button variant="primary" type="submit">Submit</Button>
+        </Form>
+      </Container>
+
+
       </>
   );
 }
