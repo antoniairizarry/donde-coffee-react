@@ -23,7 +23,7 @@ class Favorites extends Component {
     var shop_array = []
     console.log("here" + this.state.favorited_shop_ids)
     for (let i = 0; i < this.state.favorited_shop_ids.length; i++) {
-      axios.get('http://localhost:5000/coffeeshops/' + this.state.favorited_shop_ids[i],
+      axios.get(process.env.REACT_APP_FLASK_API_URL + '/coffeeshops/' + this.state.favorited_shop_ids[i],
       {headers : getHeaders()})
       .then((response)=> {
       // console.log(response)   
@@ -56,7 +56,7 @@ class Favorites extends Component {
     //query table, ask flask if favorite exists
     // GET '/favorites/<user_id>'
     let user_id = 1
-    axios.get('http://localhost:5000/favorites/' + user_id,
+    axios.get(process.env.REACT_APP_FLASK_API_URL + '/favorites/' + user_id,
     {headers : getHeaders()}
     ).then((response)=> {
       console.log("hi" +response) 

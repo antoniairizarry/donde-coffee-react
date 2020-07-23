@@ -49,7 +49,7 @@ class CoffeeShop extends Component {
 
   handleClick = () => {
     //this.setState({ filled: !this.state.filled });
-    axios.post("http://localhost:5000/togglefavorite", {      
+    axios.post(process.env.REACT_APP_FLASK_API_URL + "/togglefavorite", {      
         user_id: 1,
         shop_id: this.props.id
     },

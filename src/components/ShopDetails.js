@@ -30,7 +30,7 @@ class ShopDetails extends Component {
   
   getFavorites(coffeeshop_hash){
     let user_id = 1
-    axios.get('http://localhost:5000/favorites/' + user_id,
+    axios.get(process.env.REACT_APP_FLASK_API_URL + '/favorites/' + user_id,
     {headers : getHeaders()}).then((response)=> {
       console.log(response) 
       coffeeshop_hash['favorited_shop_ids'] = response.data.favorited_shop_ids
@@ -48,7 +48,7 @@ class ShopDetails extends Component {
   
   componentDidMount() {
     //make a call to api to display shop detail based on id
-    axios.get('http://localhost:5000/coffeeshops/' + this.state.coffeeshop.id,
+    axios.get(process.env.REACT_APP_FLASK_API_URL + '/coffeeshops/' + this.state.coffeeshop.id,
     {headers : getHeaders()}).then((response)=> {
       // console.log(response)   
       var coffeeshop_hash= {

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const signup = newUser => {
   return axios
-  .post('localhost:5000/signup', {
+  .post(process.env.REACT_APP_FLASK_API_URL + '/signup', {
     email: newUser.email,
     name: newUser.name,
     password: newUser.password

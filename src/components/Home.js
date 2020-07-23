@@ -20,7 +20,7 @@ export default class Home extends Component {
   }
 
   handleLogoutClick() {
-    axios.delete("http://localhost:5000/logout").then(response => {
+    axios.delete(process.env.REACT_APP_FLASK_API_URL + "/logout").then(response => {
     this.props.handleLogout();
     }).catch(error => {
       console.log("logout error", error);

@@ -28,7 +28,7 @@ class LocationResults extends Component {
     //query table, ask flask if favorite exists
     // GET '/favorites/<user_id>'
     let user_id = 1
-    axios.get('http://localhost:5000/favorites/' + user_id,
+    axios.get(process.env.REACT_APP_FLASK_API_URL + '/favorites/' + user_id,
     {headers : getHeaders()}
     ).then((response)=> {
       console.log("hi" +response) 
@@ -52,7 +52,7 @@ class LocationResults extends Component {
     event.preventDefault();
     //after clicking ok, call Flask API (GET /coffeeshops)
     //ADDING AUTH HEADERS == TOKEN LIVES HERE
-    axios.get('http://localhost:5000/coffeeshops?location=' + this.state.value,
+    axios.get(process.env.REACT_APP_FLASK_API_URL + '/coffeeshops?location=' + this.state.value,
     //SECOND PARAM OF .get using helper fx 
     {headers : getHeaders()}
     ).then((response) => {

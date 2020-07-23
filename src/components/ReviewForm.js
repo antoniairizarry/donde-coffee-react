@@ -17,7 +17,7 @@ export const ReviewForm = (props) => {
   function handleClick(){
     console.log('postingreview')
     // POST
-    axios.post("http://localhost:5000/review", {      
+    axios.post(process.env.REACT_APP_FLASK_API_URL + "/review", {      
       user_id: user_id,
       shop_id: props.shop_id,
       body: body,

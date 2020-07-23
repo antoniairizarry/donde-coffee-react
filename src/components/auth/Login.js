@@ -34,7 +34,7 @@ export default class Login extends Component {
   handleSubmit(event) {
     const { email, password } = this.state;
     
-    axios.post("http://localhost:5000/login", {
+    axios.post(process.env.REACT_APP_FLASK_API_URL + "/login", {
       user: {
         email: email,
         password: password
@@ -57,7 +57,7 @@ export default class Login extends Component {
   handleSubmit2(event) {
     const { email, password } = this.state;
     //making a call to flask
-    axios.post("http://localhost:5000/login2", {      
+    axios.post(process.env.REACT_APP_FLASK_API_URL + "/login2", {      
         username: email,
         password: password
   

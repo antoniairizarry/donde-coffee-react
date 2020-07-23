@@ -23,9 +23,9 @@ class Reviews extends Component {
     //check if user has favorites already marked
     //query table, ask flask if favorite exists
     // GET '/favorites/<user_id>'
-    let url = 'http://localhost:5000/userreviews/'
+    let url = process.env.REACT_APP_FLASK_API_URL + '/userreviews/'
     if (!this.props.isUserReviews){
-      url = 'http://localhost:5000/shopreviews/' + this.props.shop_id
+      url = process.env.REACT_APP_FLASK_API_URL + '/shopreviews/' + this.props.shop_id
     }
     axios.get(url,
     {headers : getHeaders()}

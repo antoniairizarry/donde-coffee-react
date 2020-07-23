@@ -33,7 +33,7 @@ export default class Registration extends Component {
 
   handleSubmit(event) {
     
-    axios.post("http://localhost:5000/signup", {
+    axios.post(process.env.REACT_APP_FLASK_API_URL + "/signup", {
       user: {
         email: this.state.email,
         name: this.state.name,
