@@ -13,6 +13,8 @@ export default class Login extends Component {
       password: "",
       loginErrors: ""
     }
+    console.log("here")
+    console.log(process.env.REACT_APP_FLASK_API_URL)
 
     // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit2 = this.handleSubmit2.bind(this);

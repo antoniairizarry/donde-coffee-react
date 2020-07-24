@@ -66,3 +66,20 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# How to RUN:
+
+Create .env at at same level as package.json
+In the file, add 
+REACT_APP_FLASK_API_URL=https://dondecoffee-api.herokuapp.com
+or
+REACT_APP_FLASK_API_URL=http://localhost:5000
+
+then run either
+npm run dev
+npm start
+
+# How to Deploy
+https://medium.com/better-programming/how-to-deploy-your-react-app-to-heroku-aedc28b218ae
+
+
