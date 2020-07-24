@@ -11,7 +11,7 @@ export default class Home extends Component {
 
     this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
     this.handleLogoutClick = this.handleLogoutClick.bind(this);
-    console.log("here")
+    console.log("REACT_APP_FLASK_API_URL")
     console.log(process.env.REACT_APP_FLASK_API_URL)
   }
 
